@@ -702,7 +702,7 @@ input, select, textarea {
 						}
 
 		}
-
+/* breakpoint media quert */
 		@media screen and (max-width: 1280px) {
 
 			.row {
