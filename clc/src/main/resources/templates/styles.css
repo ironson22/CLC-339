@@ -21,6 +21,10 @@ form{
      margin: 10px 10px;
 } */
 
+.wht *{
+    color: white;
+}
+
 h1{
     text-align: center;
 }
