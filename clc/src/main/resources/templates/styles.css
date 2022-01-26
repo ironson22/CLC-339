@@ -1,0 +1,32 @@
+/* .container{
+    width: 300px;
+    margin: auto;
+    margin-top: 50px;
+    align-items: center;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid black;
+}
+.container h3{
+    text-align: center;
+    margin: auto;
+    margin-bottom: 10px;
+}
+.input-container{
+     margin: 10px 10px;
+} */
+
+h1{
+    text-align: center;
+}
+
+@media screen and (min-width: 768px){
+    .login-container{
+        float: right;
+    }
+}
