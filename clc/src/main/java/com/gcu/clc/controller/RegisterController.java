@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/register")
 public class RegisterController {
-    @GetMapping("/r")
+    @GetMapping("/")
     public String display(Model model){
 		model.addAttribute("title", "Registration");
         return "register";
