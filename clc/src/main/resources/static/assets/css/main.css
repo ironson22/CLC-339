@@ -2122,6 +2122,12 @@ input, select, textarea {
 					font-weight: 700;
 				}
 
+.avatar{
+	width: 4em;
+	height: 4em;
+	border-radius: 50%;
+}
+
 	.dropotron {
 		border-radius: 5px;
 		background-color: #252122;
