@@ -20,17 +20,6 @@ form{
 .input-container{
      margin: 10px 10px;
 } */
-
-.avatar{
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-}
-
-.wht *{
-    color: white;
-}
-
 h1{
     text-align: center;
 }
