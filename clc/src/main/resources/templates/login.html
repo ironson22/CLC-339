@@ -7,14 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/79f8bb4c35.js" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="/assets/css/main.css" />
     <link rel="stylesheet" href="styles.css">
-
-    <title>Registration</title>
+    <link rel="stylesheet" href="/assets/css/main.css" />
+    <title>Login</title>
 </head>
 
 <body class="is-preload">
     <div id="page-wrapper">
+
     <!-- Header -->
     <section id="header">
 
@@ -50,24 +50,9 @@
     <div class="container mt-5">
         <h1>Registration</h1>
         <form class = "row g-3"action="post">
-            <div class="col-md-6">
-                <label for="lname" class="form-label" style="color: white;">First Name</label>
-                <input for="fname" type="text" class = "form-control" placeholder="First Name" required>
-            </div>
-
-            <div class="col-md-6">
-                <label for="lname" class = "form-label" style="color: white;">Last Name</label>
-                <input for="lname" type="text" class = "form-control" placeholder="Last Name" required>
-            </div>
-
             <div class="col-md-6 input-container">
                 <label for="email" class="form-label" style="color: white;">Email</label>
                 <input for="email" type="email" class = "form-control" placeholder="Email (example@yahoo.com)" required> 
-            </div>
-
-            <div class="col-md-6 input-container">
-                <label for="lname" class = "form-label" style="color: white;">Phone Number</label>
-                <input for="phone" type="text" class = "form-control" placeholder="Phone Number (123-456-7890)">
             </div>
 
             <div class="col-md-6 input-container">
@@ -75,16 +60,19 @@
                 <input for="name" type="text" class = "form-control" placeholder="Enter your password">
             </div>
             <div class="col-md-7">
-                <button type="submit" class = "btn btn-primary">Submit</button>
+                <button type="submit" class = "btn btn-primary" style="color: white;">Submit</button>
             </div>
             <div class="col-md-5 ">
                 <div class="login-container">
-                <span class = "login-span" style="color: lightgrey;">Already a user?</span>
-                <button class = "btn btn-link login-btn"onclick = "window.location.href='https:www.youtube.com'">Login</button>
+                <span class = "login-span" style="color: lightgrey;">Not a User:</span>
+                <button class = "btn btn-link login-btn" onclick="">Sign Up</button>
                 </div>
             </div>
         </form>
     </div>
+
+    
+
     <!-- Footer -->
     <section id="footer">
         <div class="container">

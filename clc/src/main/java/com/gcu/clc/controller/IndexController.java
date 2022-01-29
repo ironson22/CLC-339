@@ -8,11 +8,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 //Sign up
-@RequestMapping("/register")
-public class RegisterController {
-    @GetMapping("/")
+@RequestMapping("/")
+public class IndexController {
+    @GetMapping("/index/")
     public String display(Model model){
-		model.addAttribute("title", "Registration");
-        return "register";
+		model.addAttribute("title", "Index");
+        return "index";
     }
 }
