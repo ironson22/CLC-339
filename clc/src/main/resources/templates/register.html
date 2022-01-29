@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/79f8bb4c35.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="/assets/css/main.css" />
+    <link rel="stylesheet" href="styles.css">
+
+    <title>Registration</title>
+</head>
+
+<body class="is-preload">
+    <div id="page-wrapper">
+    <!-- Header -->
+    <section id="header">
+
+        <!-- Logo -->
+            <h1><a href="/index/">Ebuy</a></h1>
+
+        <!-- Nav -->
+            <nav id="nav">
+                <ul>
+                    <li class="current"><a href="/index/">Home</a></li>
+                    <li><form id="form" role="search">
+                        <input type="search" id="query" name="q"
+                         placeholder="Search..."
+                         aria-label="Search through site content">
+                        <button>Search</button>
+                      </form></li>
+                    <!-- Dropdown to get a Profile image -->
+                    <li>
+                        <a href="#"><img src="/assets/css/images/img_noUser.jpeg" alt="Avatar" class="avatar"></a>
+                        <ul>
+                            <li><a href="/login/">Login</a></li>
+                            <li><a href="/register/">Sign Up</a></li>
+                        </ul>
+                    </li>
+                    <!-- Cart -->
+                    <li><a href="#"><img src="/assets/css/images/img_cart.jpg" alt="Avatar" class="avatar"></a></li>
+                </ul>
+            </nav>
+    </section>
+
+    <!-- mt-5 (margin-top)  -->
+    <!-- Bootstrap tutorial used - https://www.youtube.com/watch?v=aeNDvQi6O94 -->
+    <div class="container mt-5">
+        <h1>Registration</h1>
+        <form class = "row g-3"action="post">
+            <div class="col-md-6">
+                <label for="lname" class="form-label" style="color: white;">First Name</label>
+                <input for="fname" type="text" class = "form-control" placeholder="First Name" required>
+            </div>
+
+            <div class="col-md-6">
+                <label for="lname" class = "form-label" style="color: white;">Last Name</label>
+                <input for="lname" type="text" class = "form-control" placeholder="Last Name" required>
+            </div>
+
+            <div class="col-md-6 input-container">
+                <label for="email" class="form-label" style="color: white;">Email</label>
+                <input for="email" type="email" class = "form-control" placeholder="Email (example@yahoo.com)" required> 
+            </div>
+
+            <div class="col-md-6 input-container">
+                <label for="lname" class = "form-label" style="color: white;">Phone Number</label>
+                <input for="phone" type="text" class = "form-control" placeholder="Phone Number (123-456-7890)">
+            </div>
+
+            <div class="col-md-6 input-container">
+                <label for="lname" class = "form-label" style="color: white;">Password</label>
+                <input for="name" type="text" class = "form-control" placeholder="Enter your password">
+            </div>
+            <div class="col-md-7">
+                <button type="submit" class = "btn btn-primary">Submit</button>
+            </div>
+            <div class="col-md-5 ">
+                <div class="login-container">
+                <span class = "login-span" style="color: lightgrey;">Already a user?</span>
+                <button class = "btn btn-link login-btn"onclick = "window.location.href='https:www.youtube.com'">Login</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- Footer -->
+    <section id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <!-- Copyright -->
+                        <div id="copyright">
+                            <ul class="links">
+                                <li>&copy; Ebuy. All rights reserved.</li><li>Template Design: <a href="http://html5up.net">HTML5 UP</a></li>
+                            </ul>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+    <!--Scripts -->
+			<script src="/assets/js/jquery.min.js"></script>
+			<script src="/assets/js/jquery.dropotron.min.js"></script>
+			<script src="/assets/js/browser.min.js"></script>
+			<script src="/assets/js/breakpoints.min.js"></script>
+			<script src="/assets/js/util.js"></script>
+			<script src="/assets/js/main.js"></script> 
+</body>
+
+</html>
