@@ -45,34 +45,39 @@
             </nav>
     </section>
 
-    <!-- mt-5 (margin-top)  -->
+
     <!-- Bootstrap tutorial used - https://www.youtube.com/watch?v=aeNDvQi6O94 -->
     <div class="container mt-5">
         <h1>Registration</h1>
-        <form class = "row g-3"action="post">
+        <form class = "row g-3" th:action="@{doRegister}" th:object="${registrationModel}" method="post">
             <div class="col-md-6">
                 <label for="lname" class="form-label" style="color: white;">First Name</label>
-                <input for="fname" type="text" class = "form-control" placeholder="First Name" required>
+                <input for="fname" type="text" class = "form-control" placeholder="First Name" th:field="${firstName}">
+                <h5 style = "color: red" th:if="${#fields.hasErrors('firstName')}" th:erros="*{firstName}">First Name Error</h5>
             </div>
 
             <div class="col-md-6">
                 <label for="lname" class = "form-label" style="color: white;">Last Name</label>
-                <input for="lname" type="text" class = "form-control" placeholder="Last Name" required>
+                <input for="lname" type="text" class = "form-control" placeholder="Last Name" th:field="${lastName}">
+                <h5 style = "color: red" th:if="${#fields.hasErrors('lastName')}" th:erros="*{lastName}">Last Name Error</h5>
             </div>
 
-            <div class="col-md-6 input-container">
+            <!-- <div class="col-md-6 input-container">
+                <h5 style = "color: red" th:if="${#fields.hasErrors('email')}" th:erros="*{email}">Email Error</h5>
                 <label for="email" class="form-label" style="color: white;">Email</label>
-                <input for="email" type="email" class = "form-control" placeholder="Email (example@yahoo.com)" required> 
+                <input for="email" type="email" class = "form-control" placeholder="Email (example@yahoo.com)" th:field="${email}"> 
             </div>
 
             <div class="col-md-6 input-container">
+                <h5 style = "color: red" th:if="${#fields.hasErrors('phone_number')}" th:erros="*{phone_number}">Phone Number Error</h5>
                 <label for="lname" class = "form-label" style="color: white;">Phone Number</label>
-                <input for="phone" type="text" class = "form-control" placeholder="Phone Number (123-456-7890)">
+                <input for="phone" type="text" class = "form-control" placeholder="Phone Number (123-456-7890)" th:field="${phone_number}">
             </div>
 
             <div class="col-md-6 input-container">
+                <h5 style = "color: red" th:if="${#fields.hasErrors('password')}" th:erros="*{password}">First Name Error</h5>
                 <label for="lname" class = "form-label" style="color: white;">Password</label>
-                <input for="name" type="text" class = "form-control" placeholder="Enter your password">
+                <input for="name" type="text" class = "form-control" placeholder="Enter your password" th:field="${password}"">
             </div>
             <div class="col-md-7">
                 <button type="submit" class = "btn btn-primary">Submit</button>
@@ -80,9 +85,9 @@
             <div class="col-md-5 ">
                 <div class="login-container">
                 <span class = "login-span" style="color: lightgrey;">Already a user?</span>
-                <button class = "btn btn-link login-btn"onclick = "window.location.href='https:www.youtube.com'">Login</button>
+                <button class = "btn btn-link login-btn"onclick = "window.location.href='/login/'">Login</button>
                 </div>
-            </div>
+            </div> -->
         </form>
     </div>
     <!-- Footer -->
@@ -93,7 +98,7 @@
                     <!-- Copyright -->
                         <div id="copyright">
                             <ul class="links">
-                                <li>&copy; Ebuy. All rights reserved.</li><li>Template Design: <a href="http://html5up.net">HTML5 UP</a></li>
+                                <li>&copy; Ebuy. All rights reserved.</li><li>Template Design: <a href="/login/">HTML5 UP</a></li>
                             </ul>
                         </div>
                 </div>
