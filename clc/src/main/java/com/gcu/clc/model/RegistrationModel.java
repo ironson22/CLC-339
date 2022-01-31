@@ -39,5 +39,4 @@ public class RegistrationModel {
     public void setLname(String lastName) {
         this.lastName = lastName;
     }
-
 }

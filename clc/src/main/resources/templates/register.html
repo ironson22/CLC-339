@@ -18,31 +18,8 @@
     <!-- Header -->
     <section id="header">
 
-        <!-- Logo -->
-            <h1><a href="/index/">Ebuy</a></h1>
+        <div th:replace="layouts/common :: header"></div>
 
-        <!-- Nav -->
-            <nav id="nav">
-                <ul>
-                    <li class="current"><a href="/index/">Home</a></li>
-                    <li><form id="form" role="search">
-                        <input type="search" id="query" name="q"
-                         placeholder="Search..."
-                         aria-label="Search through site content">
-                        <button>Search</button>
-                      </form></li>
-                    <!-- Dropdown to get a Profile image -->
-                    <li>
-                        <a href="#"><img src="/assets/css/images/img_noUser.jpeg" alt="Avatar" class="avatar"></a>
-                        <ul>
-                            <li><a href="/login/">Login</a></li>
-                            <li><a href="/register/">Sign Up</a></li>
-                        </ul>
-                    </li>
-                    <!-- Cart -->
-                    <li><a href="#"><img src="/assets/css/images/img_cart.jpg" alt="Avatar" class="avatar"></a></li>
-                </ul>
-            </nav>
     </section>
 
 
@@ -61,50 +38,11 @@
                 <input for="lname" type="text" class = "form-control" placeholder="Last Name" th:field="${lastName}">
                 <h5 style = "color: red" th:if="${#fields.hasErrors('lastName')}" th:erros="*{lastName}">Last Name Error</h5>
             </div>
-
-            <!-- <div class="col-md-6 input-container">
-                <h5 style = "color: red" th:if="${#fields.hasErrors('email')}" th:erros="*{email}">Email Error</h5>
-                <label for="email" class="form-label" style="color: white;">Email</label>
-                <input for="email" type="email" class = "form-control" placeholder="Email (example@yahoo.com)" th:field="${email}"> 
-            </div>
-
-            <div class="col-md-6 input-container">
-                <h5 style = "color: red" th:if="${#fields.hasErrors('phone_number')}" th:erros="*{phone_number}">Phone Number Error</h5>
-                <label for="lname" class = "form-label" style="color: white;">Phone Number</label>
-                <input for="phone" type="text" class = "form-control" placeholder="Phone Number (123-456-7890)" th:field="${phone_number}">
-            </div>
-
-            <div class="col-md-6 input-container">
-                <h5 style = "color: red" th:if="${#fields.hasErrors('password')}" th:erros="*{password}">First Name Error</h5>
-                <label for="lname" class = "form-label" style="color: white;">Password</label>
-                <input for="name" type="text" class = "form-control" placeholder="Enter your password" th:field="${password}"">
-            </div>
-            <div class="col-md-7">
-                <button type="submit" class = "btn btn-primary">Submit</button>
-            </div>
-            <div class="col-md-5 ">
-                <div class="login-container">
-                <span class = "login-span" style="color: lightgrey;">Already a user?</span>
-                <button class = "btn btn-link login-btn"onclick = "window.location.href='/login/'">Login</button>
-                </div>
-            </div> -->
         </form>
     </div>
     <!-- Footer -->
-    <section id="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <!-- Copyright -->
-                        <div id="copyright">
-                            <ul class="links">
-                                <li>&copy; Ebuy. All rights reserved.</li><li>Template Design: <a href="/login/">HTML5 UP</a></li>
-                            </ul>
-                        </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <div th:replace="layouts/common :: footer"></div>
+
 </div>
     <!--Scripts -->
 			<script src="/assets/js/jquery.min.js"></script>

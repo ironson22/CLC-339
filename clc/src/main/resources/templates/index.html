@@ -16,32 +16,8 @@
 
 			<!-- Header -->
 				<section id="header">
+					<div th:replace="layouts/common :: header"></div>
 
-					<!-- Logo -->
-						<h1><a href="/index/">Ebuy</a></h1>
-
-					<!-- Nav -->
-					<nav id="nav">
-						<ul>
-							<li class="current"><a href="/index/">Home</a></li>
-							<li><form id="form" role="search">
-								<input type="search" id="query" name="q"
-								 placeholder="Search..."
-								 aria-label="Search through site content">
-								<button>Search</button>
-							  </form></li>
-							<!-- Dropdown to get a Profile image -->
-							<li>
-								<a href="#"><img src="/assets/css/images/img_noUser.jpeg" alt="Avatar" class="avatar"></a>
-								<ul>
-									<li><a href="/login/">Login</a></li>
-									<li><a href="/register/">Sign Up</a></li>
-								</ul>
-							</li>
-							<!-- Cart -->
-							<li><a href="#"><img src="/assets/css/images/img_cart.jpg" alt="Avatar" class="avatar"></a></li>
-						</ul>
-					</nav>
 
 					<!-- Banner -->
 						<section id="banner">
@@ -195,20 +171,7 @@
 				</section>
 
 			<!-- Footer -->
-				<section id="footer">
-					<div class="container">
-						<div class="row">
-							<div class="col-12">
-								<!-- Copyright -->
-									<div id="copyright">
-										<ul class="links">
-											<li>&copy; Ebuy. All rights reserved.</li><li>Template Design: <a href="http://html5up.net">HTML5 UP</a></li>
-										</ul>
-									</div>
-							</div>
-						</div>
-					</div>
-				</section>
+			<div th:replace="layouts/common :: footer">Footer</div>
 		</div>
 
 		<!-- Scripts -->
