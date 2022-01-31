@@ -1,4 +1,4 @@
-package com.gcu.clc;
+package com.gcu.clc.model;
 
 import java.util.ArrayList;
 

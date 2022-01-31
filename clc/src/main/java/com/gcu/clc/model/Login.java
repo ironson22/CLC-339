@@ -1,4 +1,4 @@
-package com.gcu.clc;
+package com.gcu.clc.model;
 
 public class Login {
     private String username;

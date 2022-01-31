@@ -1,7 +1,7 @@
 package com.gcu.clc.controller;
 
 
-import com.gcu.clc.Register;
+import com.gcu.clc.model.Register;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
