@@ -49,7 +49,7 @@
     <!-- Bootstrap tutorial used - https://www.youtube.com/watch?v=aeNDvQi6O94 -->
     <div class="container mt-5">
         <h1>Registration</h1>
-        <form class = "row g-3"action="post">
+        <form class = "row g-3" th:action="@{/register}" th:object="${registerForm}" method="post">
             <div class="col-md-6">
                 <label for="lname" class="form-label" style="color: white;">First Name</label>
                 <input for="fname" type="text" class = "form-control" placeholder="First Name" required>
@@ -62,28 +62,34 @@
 
             <div class="col-md-6 input-container">
                 <label for="email" class="form-label" style="color: white;">Email</label>
-                <input for="email" type="email" class = "form-control" placeholder="Email (example@yahoo.com)" required> 
-            </div>
-
-            <div class="col-md-6 input-container">
-                <label for="lname" class = "form-label" style="color: white;">Phone Number</label>
-                <input for="phone" type="text" class = "form-control" placeholder="Phone Number (123-456-7890)">
+                <input for="email" type="text" class = "form-control" placeholder="Email (example@yahoo.com)" required name="Username"> 
             </div>
 
             <div class="col-md-6 input-container">
                 <label for="lname" class = "form-label" style="color: white;">Password</label>
-                <input for="name" type="text" class = "form-control" placeholder="Enter your password">
+                <input for="name" type="password" class = "form-control" placeholder="Enter your password" required minlength="6" name="password">
             </div>
+
+            <div class="col-md-6 input-container">
+                <label for="lname" class = "form-label" style="color: white;">Phone Number(Optional)</label>
+                <input for="phone" type="text" class = "form-control" placeholder="Phone Number (123-456-7890)">
+            </div>
+
             <div class="col-md-7">
-                <button type="submit" class = "btn btn-primary">Submit</button>
+                <button type="submit" class = "btn btn-primary" style="color: white;" value="register">Submit</button>
             </div>
-            <div class="col-md-5 ">
-                <div class="login-container">
-                <span class = "login-span" style="color: lightgrey;">Already a user?</span>
-                <button class = "btn btn-link login-btn"onclick = "window.location.href='https:www.youtube.com'">Login</button>
-                </div>
-            </div>
+
+            <p th:if="${registered}" class="registered" style="color: white;">You have been Registerd</p>
+
+            
         </form>
+
+        <div class="col-md-7 " style="text-align: center;">
+            <div class="login-container">
+            <span class = "login-span" style="color: lightgrey; text-align: center;">Already a User:</span>
+            <a href="/login/">Login</a>
+            </div>
+        </div>
     </div>
     <!-- Footer -->
     <section id="footer">
