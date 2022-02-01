@@ -1,7 +1,7 @@
 package com.gcu.clc.controller;
 
 
-import com.gcu.clc.model.Register;
+import com.gcu.clc.model.RegisterModel;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,7 +19,7 @@ public class RegisterController {
     }
     //Check for Credentials
     @PostMapping("/register")
-    public String register(@ModelAttribute(name="registerForm") Register signUp, Model m) {
+    public String register(@ModelAttribute(name="registerForm") RegisterModel signUp, Model m) {
     String usr = signUp.getUsername();
     String pas = signUp.getPassword();
 

@@ -1,8 +1,8 @@
 package com.gcu.clc.controller;
 
 
-import com.gcu.clc.model.Login;
-import com.gcu.clc.model.Register;
+import com.gcu.clc.model.LoginModel;
+import com.gcu.clc.model.RegisterModel;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,12 +21,12 @@ public class LoginController {
     }
     //Check for Credentials
     @PostMapping("/login")
-    public String login(@ModelAttribute(name="loginForm") Login login, Model m) {
+    public String login(@ModelAttribute(name="loginForm") LoginModel login, Model m) {
     String uname = login.getUsername();
     String pass = login.getPassword();
 
-    boolean containsUser = Register.SavedUsers.contains(uname);
-    boolean containsPassword = Register.SavedPassword.contains(pass);
+    boolean containsUser = RegisterModel.SavedUsers.contains(uname);
+    boolean containsPassword = RegisterModel.SavedPassword.contains(pass);
     
     if(containsUser && containsPassword) {
         m.addAttribute("uname", uname);

@@ -2,17 +2,13 @@ package com.gcu.clc.model;
 
 import java.util.ArrayList;
 
-public class Register {
+public class RegisterModel {
     private String username;
     private String password;
     public static ArrayList<String> SavedUsers = new ArrayList<String>();
     public static ArrayList<String> SavedPassword = new ArrayList<String>();
-
-    public Register(){
-        super();
-    }
     
-    public Register(String username, String password){
+    public RegisterModel(String username, String password){
         super();
         this.username = username;
         this.password = password;
