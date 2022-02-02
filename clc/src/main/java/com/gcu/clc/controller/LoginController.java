@@ -25,8 +25,8 @@ public class LoginController {
     String uname = login.getUsername();
     String pass = login.getPassword();
 
-    boolean containsUser = RegisterModel.SavedUsers.contains(uname);
-    boolean containsPassword = RegisterModel.SavedPassword.contains(pass);
+    boolean containsUser = RegisterModel.savedUsers.contains(uname);
+    boolean containsPassword = RegisterModel.savedPassword.contains(pass);
     
     if(containsUser && containsPassword) {
         m.addAttribute("uname", uname);

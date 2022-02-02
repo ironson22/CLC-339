@@ -25,7 +25,8 @@ public class RegisterController {
 
     
     if(usr != null && pas != null) {
-        signUp.addCred();
+        RegisterModel.savedPassword.add(usr);
+        RegisterModel.savedPassword.add(pas);
     }
     m.addAttribute("registered", "You have been registered");
     return "register";
