@@ -5,16 +5,18 @@ import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 public class RegistrationModel {
-    // @NotNull(message ="First name is a required field")
-    // @Size(min = 6, max = 32, message = "First name must be between 2 and 32 characters")
-    // private String firstName;
-    // @NotNull(message ="First name is a required field")
-    // @Size(min = 6, max = 32, message = "First name must be between 2 and 32 characters")
-    // private String lastName;
+    @NotNull(message ="First name is a required field")
+    @Size(min = 6, max = 32, message = "First name must be between 2 and 32 characters")
+    private String firstName;
 
-    // @Size(min = 1, max = 32, message = "Username must be between 1 and 32")
-    // @Pattern(regexp = "/^\\(?([0-9]{3})\\)?[-.\\s]?([0-9]{3})[-.\\s]?([0-9]{4})$/")
-    // private String phone_number;
+    @NotNull(message ="First name is a required field")
+    @Size(min = 6, max = 32, message = "First name must be between 2 and 32 characters")
+    private String lastName;
+
+    @Size(min = 1, max = 32, message = "Username must be between 1 and 32")
+    @Pattern(regexp = "/^\\(?([0-9]{3})\\)?[-.\\s]?([0-9]{3})[-.\\s]?([0-9]{4})$/")
+    private String phoneNumber;
+
     @NotNull(message ="Username is a required field")
     @Size(min = 1, max = 32, message = "email must be between 1 and 32")
     @Pattern(regexp = "^(?=.{1,64}@)[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+)*@[^-][A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$")
@@ -34,6 +36,23 @@ public class RegistrationModel {
         this.password = password;
     }
 
+    
+    public String getFirstName() {
+        return this.firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+    
+    public String getLastName() {
+        return this.lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
     public String getEmail() {
         return this.email;
     }
@@ -42,6 +61,13 @@ public class RegistrationModel {
         this.email = email;
     }
 
+    public String getPhoneNumber() {
+        return this.phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
 
     public String getPassword() {
         return this.password;

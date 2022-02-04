@@ -17,9 +17,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/registration")
 public class RegisterController {
     @GetMapping("/")
-    public String showLogin(Model model){
+    public String showRegister(Model model){
         model.addAttribute("title", "Registration");
-        model.addAttribute("registerModel", new RegistrationModel());
+        model.addAttribute("registrationModel", new RegistrationModel());
         return "register";
     }
     //Check for Credentials

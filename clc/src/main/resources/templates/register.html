@@ -27,14 +27,40 @@
         <!-- Bootstrap tutorial used - https://www.youtube.com/watch?v=aeNDvQi6O94 -->
         <div class="container mt-5">
             <h1>Registration</h1>
-            <form class = "row g-3" th:action="@{doRegister}" th:object="${registerModel}" method="post">
+            <form class = "row g-3" th:action="@{doRegister}" th:object="${registrationModel}" method="post">
+
+                <div class="field-container col-md-6">
+                    <h5 style = "color: red" th:if="${#fields.hasErrors('firstName')}" th:erros="*{firstName}">Enter a correct email</h5>
+                    <div class="input-container">
+                        <label for="firstName" class="form-label" style="color: white;">First Name</label>
+                        <input for="firstName" type="text" class="form-control" placeholder="John" name="firstName" th:field="*{firstName}"> 
+                    </div>
+                </div>
+
+                
+                <div class="field-container col-md-6">
+                    <h5 style = "color: red" th:if="${#fields.hasErrors('lastName')}" th:erros="*{lastName}">Enter a correct email</h5>
+                    <div class="input-container">
+                        <label for="lastName" class="form-label" style="color: white;">Last name</label>
+                        <input for="lastName" type="text" class="form-control" placeholder="Doe" name="lastName" th:field="*{lastName}"> 
+                    </div>
+                </div>
+           
                 <div class="field-container col-md-6">
                     <h5 style = "color: red" th:if="${#fields.hasErrors('email')}" th:erros="*{email}">Enter a correct email</h5>
                     <div class="input-container">
                         <label for="email" class="form-label" style="color: white;">Email</label>
                         <input for="email" type="text" class="form-control" placeholder="Email (example@yahoo.com)" name="email" th:field="*{email}"> 
                     </div>
+                </div> 
+
+                <div class="field-container col-md-6">
+                    <h5 style = "color: red" th:if="${#fields.hasErrors('phoneNumber')}" th:erros="*{phoneNumber}">Enter a correct email</h5>
+                    <div class="input-container">
+                        <label for="phoneNumber" class="form-label" style="color: white;">Phone Number</label>
+                        <input for="phoneNumber" type="text" class="form-control" placeholder="John" name="phoneNumber" th:field="*{phoneNumber}"> 
                     </div>
+                </div>
         
                     <div class="field-container col-md-6">
                         <h5 style = "color: red" th:if="${#fields.hasErrors('password')}" th:erros="*{password}">Enter a correct password</h5>
