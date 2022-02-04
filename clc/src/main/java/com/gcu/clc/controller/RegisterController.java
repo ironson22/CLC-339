@@ -23,7 +23,7 @@ public class RegisterController {
         return "register";
     }
     //Check for Credentials
-    @PostMapping("/doRegister")
+    @PostMapping("/register")
     public String register(@Valid RegistrationModel signUp, BindingResult bindResult, Model model) {
         if(bindResult.hasErrors()){
             model.addAttribute("title", "Registration");
