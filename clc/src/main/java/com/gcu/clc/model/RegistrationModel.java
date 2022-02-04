@@ -6,15 +6,16 @@ import javax.validation.constraints.Size;
 
 public class RegistrationModel {
     @NotNull(message ="First name is a required field")
-    @Size(min = 6, max = 32, message = "First name must be between 2 and 32 characters")
+    @Size(min = 3, max = 32, message = "First name must be between 2 and 32 characters")
     private String firstName;
 
     @NotNull(message ="First name is a required field")
-    @Size(min = 6, max = 32, message = "First name must be between 2 and 32 characters")
+    @Size(min = 3, max = 32, message = "First name must be between 2 and 32 characters")
     private String lastName;
 
     @Size(min = 1, max = 32, message = "Username must be between 1 and 32")
-    @Pattern(regexp = "/^\\(?([0-9]{3})\\)?[-.\\s]?([0-9]{3})[-.\\s]?([0-9]{4})$/")
+    //1234567890, 123-456-7890, (123)456-7890, (123)4567890
+    @Pattern(regexp = "\\d{10}|(?:\\d{3}-){2}\\d{4}|\\(\\d{3}\\)\\d{3}-?\\d{4}")
     private String phoneNumber;
 
     @NotNull(message ="Username is a required field")
