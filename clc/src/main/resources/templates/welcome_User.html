@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Ebuy</title>
+		<title th:text="${title}"></title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="/assets/css/main.css" />
@@ -88,8 +88,8 @@
 				<section id="main">
 					<div class="container">
 						<h3>***Getting Value in Thymeleaf***</h3>
- 							Username <p th:text="${uname}"></p>
- 							Password <p th:text="${pass}"></p>
+ 							Username <p th:text="${email}"></p>
+ 							Password <p th:text="${password}"></p>
 						<div class="row">
 							<div class="col-12">
 
