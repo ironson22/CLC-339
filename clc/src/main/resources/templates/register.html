@@ -27,17 +27,17 @@
         <!-- Bootstrap tutorial used - https://www.youtube.com/watch?v=aeNDvQi6O94 -->
         <div class="container mt-5">
             <h1>Registration</h1>
-            <form class = "row g-3" th:action="@{register}" th:object="${registrationModel}" method="post">
-
+            <!-- Form for registering. Uses thymeleaf to validate the fields. th:action looks for the post mapping of /register. registrationModel was defined as an attribute in the RegisterController class, and set to a new RegistrationModel -->
+            <form class="row g-3" th:action="@{register}" th:object="${registrationModel}" method="post">
+                <!-- First Name field -->
                 <div class="field-container col-md-6">
-                    <h5 style = "color: red" th:if="${#fields.hasErrors('firstName')}" th:erros="*{firstName}">Enter a name between 3 - 32 characters</h5>
+                    <h5 style="color: red" th:if="${#fields.hasErrors('firstName')}" th:erros="*{firstName}">Enter a name between 3 - 32 characters</h5>
                     <div class="input-container">
                         <label for="firstName" class="form-label" style="color: white;">First Name</label>
                         <input for="firstName" type="text" class="form-control" placeholder="John" name="firstName" th:field="*{firstName}"> 
                     </div>
                 </div>
-
-                
+                <!-- Last Name field -->
                 <div class="field-container col-md-6">
                     <h5 style = "color: red" th:if="${#fields.hasErrors('lastName')}" th:erros="*{lastName}">Enter a last name between 3 - 32 characters long</h5>
                     <div class="input-container">
@@ -45,7 +45,7 @@
                         <input for="lastName" type="text" class="form-control" placeholder="Doe" name="lastName" th:field="*{lastName}"> 
                     </div>
                 </div>
-           
+           <!-- email field -->
                 <div class="field-container col-md-6">
                     <h5 style = "color: red" th:if="${#fields.hasErrors('email')}" th:erros="*{email}">Enter a correct email</h5>
                     <div class="input-container">
@@ -53,7 +53,7 @@
                         <input for="email" type="text" class="form-control" placeholder="Email (example@yahoo.com)" name="email" th:field="*{email}"> 
                     </div>
                 </div> 
-
+        <!-- phone number field -->
                 <div class="field-container col-md-6">
                     <h5 style = "color: red" th:if="${#fields.hasErrors('phoneNumber')}" th:erros="*{phoneNumber}">Enter a correct phone number</h5>
                     <div class="input-container">
@@ -61,7 +61,7 @@
                         <input for="phoneNumber" type="text" class="form-control" placeholder="ex. 123-456-7890, 1234567890, (123)456-7890, or (123)4567890" name="phoneNumber" th:field="*{phoneNumber}"> 
                     </div>
                 </div>
-        
+        <!-- password field -->
                     <div class="field-container col-md-6">
                         <h5 style = "color: red" th:if="${#fields.hasErrors('password')}" th:erros="*{password}">Enter a correct password</h5>
                         <div class="input-container">
@@ -75,7 +75,7 @@
                     </div>
         </form>
     </div>
-    <!-- Footer -->
+    <!-- Footer, uses thymeleaf -->
     <div th:replace="layouts/common :: footer"></div>
 
 </div>
