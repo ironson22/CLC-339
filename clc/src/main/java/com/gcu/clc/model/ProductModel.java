@@ -3,16 +3,34 @@ package com.gcu.clc.model;
 public class ProductModel {
     private int productId;
     private String productName;
+    private String productImage;
+
     private String description;
     private float price;
 
-    public ProductModel(int productId, String productName, String description, float price){
+    public ProductModel(int productId, String productName, String description, String productImage, float price){
         this.productId = productId;
         this.productName = productName;
         this.description = description;
         this.price = price;
+        this.productImage = productImage;
     }
-    
+
+    /**
+     * 
+     * @return the pathway for the product image used in the html file
+     */
+    public String getProductImage() {
+        return this.productImage;
+    }
+    /**
+     * sets the image of the product
+     * @param productImage the image of the product
+     */
+    public void setProductImage(String productImage) {
+        this.productImage = productImage;
+    }
+
     /** 
      * A getter for the product
      * @return The product ID

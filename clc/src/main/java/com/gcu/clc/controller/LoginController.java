@@ -3,6 +3,7 @@ package com.gcu.clc.controller;
 
 import javax.validation.Valid;
 
+import com.gcu.clc.business.ProductBusinessService;
 import com.gcu.clc.model.LoginModel;
 
 import org.springframework.stereotype.Controller;
@@ -46,5 +47,11 @@ public class LoginController {
     //If the login is successful, it'll change the title attribute to Welcome and take the user to the welcome_user file
     model.addAttribute("title", "Welcome");
     return "welcome_user";
+ }
+ @GetMapping("/products")
+ public String productDisplay(Model model){
+    ProductBusinessService productService = new ProductBusinessService();
+     model.addAttribute("products", productService.getProducts());
+     return "products";
  }
 }
