@@ -83,7 +83,8 @@ input, select, textarea {
 	}
 
 	body {
-		background: #252122;
+		/* background: #252122; */
+		background: transparent;
 		background-image: url("images/bg02.png");
 	}
 
@@ -176,6 +177,11 @@ input, select, textarea {
 	}
 
 /* Container */
+
+div.container#footer{
+	background: black;
+	width: 100%;
+}
 
 	.container {
 		margin: 0 auto;
@@ -1526,6 +1532,13 @@ input, select, textarea {
 
 /* Section/Article */
 
+	section#footer{
+		background: black;
+		width: 100%;
+		height: 50%;
+	}
+
+
 	section, article {
 		margin-bottom: 2.5em;
 	}
@@ -2270,6 +2283,12 @@ input, select, textarea {
 
 /* Main */
 
+#main2 {
+	position: relative;
+	background: white url("images/bg02.png");
+	padding: 4em 0 4em 0;
+}
+
 	#main {
 		position: relative;
 		background: #f7f7f7 url("images/bg02.png");
@@ -2296,24 +2315,24 @@ input, select, textarea {
 
 	#footer {
 		position: relative;
-		color: #858484;
-		padding: 4em 0;
+		color: white;
+		padding: 1em 0;
 	}
 
-		#footer:before {
+		/* #footer:before {
 			content: '';
 			position: absolute;
 			top: 0;
 			left: 0;
 			width: 100%;
-			background: url("images/bg01.png");
+			background: black;
 			background-size: 100% 100%;
 			z-index: 0;
 			opacity: 0.5;
-		}
+		} */
 
 		#footer a {
-			color: #c5c4c4;
+			color: black;
 		}
 
 		#footer h2, #footer h3, #footer h4, #footer h5, #footer h6, #footer strong, #footer b {
@@ -2342,14 +2361,16 @@ input, select, textarea {
 /* Copyright */
 
 	#copyright {
+		background: black;
 		text-align: center;
-		margin: 3em 0 2em 0;
+		margin: 2em 0 2em 0;
 	}
 
 		#copyright ul.links {
+			color: black;
 			display: inline-block;
 			background: #2C2929;
-			background: rgba(255, 255, 255, 0.05);
+			background: white;
 			border-radius: 5px;
 			margin: 0;
 			padding: 0.85em 2.25em 0.85em 2.25em;
@@ -2433,7 +2454,7 @@ input, select, textarea {
 		/* Footer */
 
 			#footer {
-				padding: 3em 0;
+				padding: 1em 0;
 			}
 
 				#footer:before {
@@ -2524,7 +2545,7 @@ input, select, textarea {
 				}
 
 				#intro footer {
-					padding: 3em 0 0 0;
+					padding: 2em 0 0 0;
 				}
 
 					#intro footer ul.actions {
@@ -2637,13 +2658,13 @@ input, select, textarea {
 				width: 275px;
 				z-index: 10002;
 				color: #858484;
-				background-image: url("images/bg02.png");
+				background: white;
 				box-shadow: inset -3px 0px 5px 0px rgba(0, 0, 0, 0.35);
 			}
 
 				#navPanel .link {
 					display: block;
-					color: #888;
+					color: black;
 					text-decoration: none;
 					height: 44px;
 					line-height: 44px;
@@ -2908,7 +2929,7 @@ input, select, textarea {
 		/* Footer */
 
 			#footer {
-				padding: 40px 0 20px 0;
+				padding: 1em 0;
 			}
 
 	}
