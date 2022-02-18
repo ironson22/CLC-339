@@ -3,9 +3,11 @@ package com.gcu.clc.controller;
 
 import javax.validation.Valid;
 
+import com.gcu.clc.business.LoginBusinessService;
 import com.gcu.clc.business.ProductBusinessService;
 import com.gcu.clc.model.LoginModel;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -18,13 +20,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/login")
 //Sign up
 public class LoginController {
-    
+    @Autowired
+    private LoginBusinessService loginBusinessService;
+
+
     /** 
      * @param model The model being used
      * @return Returns the file to which the user will be taken to
      */
     @GetMapping("/")
-    public String showLogin(Model model){
+    public String showLogin(Model model) {
         model.addAttribute("title", "Login Form");
         model.addAttribute("loginModel", new LoginModel());
         return "login";
@@ -38,20 +43,28 @@ public class LoginController {
      */
     @PostMapping("/doLogin")
     public String login(@Valid LoginModel login, BindingResult bindResult, Model model) {
-        //If the input fields have errors, it will take the user to the login page again
-        if(bindResult.hasErrors()){
-            model.addAttribute("title", "Login Form");
+        if (login.getEmail().equals(loginBusinessService.getEmail()) && login.getPassword().equals(loginBusinessService.getPassword())) {
+            //If the input fields have errors, it will take the user to the login page again
+            if (bindResult.hasErrors()) {
+                model.addAttribute("title", "Login Form");
 
+                return "login";
+            }
+            //If the login is successful, it'll change the title attribute to Welcome and take the user to the welcome_user file
+            model.addAttribute("title", "Welcome");
+            model.addAttribute("user", loginBusinessService);
+            return "welcome_user";
+        } else {
+            model.addAttribute("title", "Login Form");
             return "login";
         }
-    //If the login is successful, it'll change the title attribute to Welcome and take the user to the welcome_user file
-    model.addAttribute("title", "Welcome");
-    return "welcome_user";
- }
- @GetMapping("/products")
- public String productDisplay(Model model){
-    ProductBusinessService productService = new ProductBusinessService();
-     model.addAttribute("products", productService.getProducts());
-     return "products";
- }
+
+        
+    }
+    @GetMapping("/products")
+    public String productDisplay(Model model) {
+        ProductBusinessService productService = new ProductBusinessService();
+        model.addAttribute("products", productService.getProducts());
+        return "products";
+    }
 }

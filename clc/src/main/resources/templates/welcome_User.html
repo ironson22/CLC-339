@@ -4,7 +4,7 @@
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
-<html>
+<html xmlns="www.thymeleaf.orgs">
 	<head>
 		<title th:text="${title}"></title>
 		<meta charset="utf-8" />
@@ -46,7 +46,7 @@
 					<!-- Banner -->
 						<section id="banner">
 							<header>
-								<h2>Howdy. Admin,</h2>
+								<h2 th:text="${user.getEmail}">Howdy. Admin,</h2>
 								<p>You have just logged in.</p>
 							</header>
 						</section>
