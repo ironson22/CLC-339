@@ -4,6 +4,7 @@ package com.gcu.clc.controller;
 import javax.validation.Valid;
 
 import com.gcu.clc.business.RegistrationBusinessService;
+import com.gcu.clc.model.ProductModel;
 import com.gcu.clc.model.RegistrationModel;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,7 +42,7 @@ public class RegisterController {
     public String register(@Valid RegistrationModel signUp, BindingResult bindResult, Model model) {
         //If there were errors, it'll take the user to the registration page again
         if(bindResult.hasErrors()){
-            model.addAttribute("title", signUp.getFirstName());
+            model.addAttribute("title", "Registration");
             return "register";
         }
         

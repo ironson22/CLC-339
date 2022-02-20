@@ -27,73 +27,36 @@
             <!-- Intro -->
 						<section id="intro" class="container">
 							<div class="row">
-								<div class="col-4 col-12-medium">
-									<section class="first">
-										<i class="icon solid featured fa-cog"></i>
-										<header>
-											<h2>Customize your savings</h2>
-										</header>
-										<!-- <p>Nisl amet dolor sit ipsum veroeros sed blandit consequat veroeros et magna tempus.</p> -->
-									</section>
-								</div>
-								<div class="col-4 col-12-medium">
-									<section class="middle">
-										<i class="icon solid featured alt fa-bolt"></i>
-										<header>
-											<h2>Flash Deals</h2>
-										</header>
-										<!-- <p>Nisl amet dolor sit ipsum veroeros sed blandit consequat veroeros et magna tempus.</p> -->
-									</section>
-								</div>
-								<div class="col-4 col-12-medium">
-									<section class="last">
-										<i class="icon solid featured alt2 fa-star"></i>
-										<header>
-											<h2>Member Special</h2>
-										</header>
-										<!-- <p>Nisl amet dolor sit ipsum veroeros sed blandit consequat veroeros et magna tempus.</p> -->
-									</section>
-								</div>
+								<div class="col-4 col-12">
+									  <!-- Portfolio -->
+                                      <section>
+                                        <header class="major">
+                                            <h2>Products</h2>
+                                        </header>
+                                        <div class="row">
+                                            <div class="col-4 col-6-medium col-12-small" th:each="product : ${products}">
+                                                <section class="box">
+                                                    <!-- <a href="#" class="image featured"><img src="" alt="" style="width: 5em; height:5em;" th:src="${product.productImage}"/></a> -->
+                                                    <header>
+                                                        <h3 th:text="${product.productName}">Ipsum feugiat et dolor</h3>
+                                                    </header>
+                                                    <p th:text="${product.description}">Lorem ipsum dolor sit amet sit veroeros sed amet blandit consequat vegroeros lorem blandit adipiscing et feugiat phasellus tempus dolore ipsum lorem dolore.</p>
+                                                    <p th:text="${product.price}">Lorem ipsum dolor sit amet sit veroeros sed amet blandit consequat vegroeros lorem blandit adipiscing et feugiat phasellus tempus dolore ipsum lorem dolore.</p>
+
+                                                    <footer>
+                                                        <ul class="actions">
+                                                            <li><a href="#" class="button alt">Purchase</a></li>
+                                                        </ul>
+                                                    </footer>
+                                                </section>
+                                            </div>
+                                        </div>
 							</div>
 						</section>
 
 
     </section>
 
-<!-- Main -->
-<section id="main2">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-
-                    <!-- Portfolio -->
-                        <section>
-                            <header class="major">
-                                <h2>Products</h2>
-                            </header>
-                            <div class="row">
-                                <div class="col-4 col-6-medium col-12-small" th:each="product : ${products}">
-                                    <section class="box">
-                                        <a href="#" class="image featured"><img src="" alt="" style="width: 5em; height:5em;" th:src="${product.productImage}"/></a>
-                                        <header>
-                                            <h3 th:text="${product.productName}">Ipsum feugiat et dolor</h3>
-                                        </header>
-                                        <p th:text="${product.description}">Lorem ipsum dolor sit amet sit veroeros sed amet blandit consequat vegroeros lorem blandit adipiscing et feugiat phasellus tempus dolore ipsum lorem dolore.</p>
-                                        <footer>
-                                            <ul class="actions">
-                                                <li><a href="#" class="button alt">Purchase</a></li>
-                                            </ul>
-                                        </footer>
-                                    </section>
-                                </div>
-                                
-                            </div>
-                        </section>
-
-                </div>
-            </div>
-        </div>
-    </section>
     
     <div th:replace="layouts/common :: footer">Footer</div>
     <script src="/assets/js/jquery.min.js"></script>

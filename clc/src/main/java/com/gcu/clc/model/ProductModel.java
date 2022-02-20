@@ -1,52 +1,73 @@
 package com.gcu.clc.model;
 
-public class ProductModel {
-    private int productId;
-    private String productName;
-    private String productImage;
+import java.util.Locale.Category;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import org.springframework.format.annotation.NumberFormat;
+
+public class ProductModel {
+    // private int productId;
+    @NotNull
+    @Size(min=5, max = 50)
+    private String productName;
+    @NotNull
+    // @Size(min=1)
+    // private String productImage;
+    @NotNull
+    private String category;
     private String description;
+    @NotNull
+    @NumberFormat
     private float price;
 
-    public ProductModel(int productId, String productName, String description, String productImage, float price){
-        this.productId = productId;
+    public ProductModel(){
+        this.productName = "";
+        this.description = "";
+        this.price = 0;
+        // this.productImage = "";
+    }
+    public ProductModel(String productName, String description, String category, float price){
+        // this.productId = productId;
         this.productName = productName;
         this.description = description;
         this.price = price;
-        this.productImage = productImage;
+        // this.productImage = productImage;
     }
 
     /**
      * 
      * @return the pathway for the product image used in the html file
      */
-    public String getProductImage() {
-        return this.productImage;
-    }
+    // public String getProductImage() {
+    //     return this.productImage;
+    // }
     /**
      * sets the image of the product
      * @param productImage the image of the product
      */
-    public void setProductImage(String productImage) {
-        this.productImage = productImage;
-    }
+    // public void setProductImage(String productImage) {
+    //     this.productImage = productImage;
+    // }
 
     /** 
      * A getter for the product
      * @return The product ID
      */
-    public int getProductId() {
-        return this.productId;
-    }
+    // public int getProductId() {
+    //     return this.productId;
+    // }
 
     
     /** 
      * A setter for the product
      * @param productId
      */
-    public void setProductId(int productId) {
-        this.productId = productId;
-    }
+    // public void setProductId(int productId) {
+    //     this.productId = productId;
+    // }
 
     
     /** 
@@ -100,6 +121,13 @@ public class ProductModel {
      */
     public void setPrice(float price) {
         this.price = price;
+    }
+    public String getCategory() {
+        return this.category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 
 

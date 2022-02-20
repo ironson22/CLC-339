@@ -6,6 +6,7 @@ import javax.validation.Valid;
 import com.gcu.clc.business.LoginBusinessService;
 import com.gcu.clc.business.ProductBusinessService;
 import com.gcu.clc.model.LoginModel;
+import com.gcu.clc.model.ProductModel;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,7 +23,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class LoginController {
     @Autowired
     private LoginBusinessService loginBusinessService;
-
+    
 
     /** 
      * @param model The model being used
@@ -60,11 +61,5 @@ public class LoginController {
         }
 
         
-    }
-    @GetMapping("/products")
-    public String productDisplay(Model model) {
-        ProductBusinessService productService = new ProductBusinessService();
-        model.addAttribute("products", productService.getProducts());
-        return "products";
     }
 }
