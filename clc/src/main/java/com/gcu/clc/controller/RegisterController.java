@@ -4,6 +4,7 @@ package com.gcu.clc.controller;
 import javax.validation.Valid;
 
 import com.gcu.clc.business.RegistrationBusinessService;
+import com.gcu.clc.data.RegisterDataService;
 import com.gcu.clc.model.ProductModel;
 import com.gcu.clc.model.RegistrationModel;
 
@@ -21,6 +22,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class RegisterController {
     @Autowired
     private RegistrationBusinessService register;
+    // @Autowired
+    // RegisterDataService registerDB;
     /** 
      * @param model The model to be used
      * @return Returns the file that the user will be taken to
@@ -45,17 +48,13 @@ public class RegisterController {
             model.addAttribute("title", "Registration");
             return "register";
         }
-        
-        register.setEmail(signUp.getEmail());
-        register.setPassword(signUp.getPassword());
-        register.setFirstName(signUp.getFirstName());
-        register.setLastName(signUp.getLastName());
-        register.setPhoneNumber(signUp.getPhoneNumber());
+        //When you register, it sets each property to the value of the corresponding value. Email and password are then used to set the temporary login info, used to login a user.
+        // registerDB.createUser(signUp);
 
         //If the registration was successful, it'll take the user to the welcome page
-    model.addAttribute("title", signUp.getFirstName());
-    model.addAttribute("user", register);
-    return "welcome_user";
+        model.addAttribute("title", "Welcome");
+        model.addAttribute("user", register);
+        return "welcome_user";
   
  }
 }

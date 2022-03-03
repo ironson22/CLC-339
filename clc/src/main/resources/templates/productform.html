@@ -24,7 +24,7 @@
             <h1>Product Form</h1>
             <!-- Form for registering. Uses thymeleaf to validate the fields. th:action looks for the post mapping of /register. registrationModel was defined as an attribute in the RegisterController class, and set to a new RegistrationModel -->
             <form class="row g-3" th:action="@{createProduct}" th:object="${productModel}" method="post">
-                <!-- First Name field -->
+                <!-- Product name field -->
                 <div class="field-container col-md-6">
                     <h5 style="color: red" th:if="${#fields.hasErrors('productName')}" th:erros="*{productName}">Enter a name between 3 - 32 characters</h5>
                     <div class="input-container">
@@ -32,6 +32,7 @@
                         <input for="productName" type="text" class="form-control" placeholder="T.V" name="productName" th:field="*{productName}"> 
                     </div>
                 </div> 
+                <!-- Product category field -->
                 <div class="field-container col-md-6">
                     <h5 style="color: red" th:if="${#fields.hasErrors('category')}" th:erros="*{category}">Choose a category</h5>
                     <div class="input-container">
@@ -45,13 +46,14 @@
                         </select>                    
                     </div>
                 </div> 
+                <!-- Product description field -->
                 <div class="field-container col-md-8">
                     <div class="input-container">
                         <label for="description" class="form-label" style="color: white;">Product Description</label>
                         <input for="description" type="text" class="form-control" placeholder="A description of the product" name="productName" th:field="*{description}"> 
                     </div>
                 </div> 
-                
+                <!-- Product price field -->
                 <div class="field-container col-md-4">
                     <h5 style="color: red" th:if="${#fields.hasErrors('price')}" th:erros="*{price}">Enter a valid number</h5>
                     <div class="input-container">

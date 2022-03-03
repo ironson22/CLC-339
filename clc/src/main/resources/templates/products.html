@@ -34,14 +34,15 @@
                                             <h2>Products</h2>
                                         </header>
                                         <div class="row">
+                                            <!-- Goes through each product and displays its info -->
                                             <div class="col-4 col-6-medium col-12-small" th:each="product : ${products}">
                                                 <section class="box">
                                                     <!-- <a href="#" class="image featured"><img src="" alt="" style="width: 5em; height:5em;" th:src="${product.productImage}"/></a> -->
                                                     <header>
-                                                        <h3 th:text="${product.productName}">Ipsum feugiat et dolor</h3>
+                                                        <h3 th:text="${product.productName}">Product Name</h3>
                                                     </header>
-                                                    <p th:text="${product.description}">Lorem ipsum dolor sit amet sit veroeros sed amet blandit consequat vegroeros lorem blandit adipiscing et feugiat phasellus tempus dolore ipsum lorem dolore.</p>
-                                                    <p th:text="${product.price}">Lorem ipsum dolor sit amet sit veroeros sed amet blandit consequat vegroeros lorem blandit adipiscing et feugiat phasellus tempus dolore ipsum lorem dolore.</p>
+                                                    <p th:text="${product.description}">Product Description</p>
+                                                    <p th:text="${product.price}">Product Price</p>
 
                                                     <footer>
                                                         <ul class="actions">

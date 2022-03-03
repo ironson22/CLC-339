@@ -31,9 +31,9 @@
             <form class="row g-3" th:action="@{register}" th:object="${registrationModel}" method="post">
                 <!-- First Name field -->
                 <div class="field-container col-md-6">
-                    <h5 style="color: red" th:if="${#fields.hasErrors('firstName')}" th:erros="*{firstName}">Enter a name between 3 - 32 characters</h5>
+                    
                     <div class="input-container">
-                        <label for="firstName" class="form-label" style="color: white;">First Name</label>
+                        <label for="firstName" class="form-label" style="color: white;">First Name</label> <h5 style="color: red" th:if="${#fields.hasErrors('firstName')}" th:erros="*{firstName}">Enter a name between 3 - 32 characters</h5>
                         <input for="firstName" type="text" class="form-control" placeholder="John" name="firstName" th:field="*{firstName}"> 
                     </div>
                 </div>
@@ -59,6 +59,14 @@
                     <div class="input-container">
                         <label for="phoneNumber" class="form-label" style="color: white;">Phone Number</label>
                         <input for="phoneNumber" type="text" class="form-control" placeholder="ex. 123-456-7890, 1234567890, (123)456-7890, or (123)4567890" name="phoneNumber" th:field="*{phoneNumber}"> 
+                    </div>
+                </div>
+        <!-- address field -->
+                <div class="field-container col-md-6">
+                    <h5 style = "color: red" th:if="${#fields.hasErrors('address')}" th:erros="*{address}">Enter an address</h5>
+                    <div class="input-container">
+                        <label for="address" class="form-label" style="color: white;">Address</label>
+                        <input for="address" type="text" class="form-control" placeholder="123 N Streetname Ave"> 
                     </div>
                 </div>
         <!-- password field -->

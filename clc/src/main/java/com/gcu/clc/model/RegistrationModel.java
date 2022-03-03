@@ -25,6 +25,8 @@ public class RegistrationModel {
     @NotNull(message = "Password is a required field")
     @Size(min = 1, max = 32, message = "password must be between 6 and 32 characters")
     private String password;
+    @Size(min = 8, max = 50)
+    private String address;
 
     public RegistrationModel() {
         this.email = "";
@@ -105,6 +107,21 @@ public class RegistrationModel {
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
+/**
+ * 
+ * @return user's address
+ */
+    public String getAddress() {
+        return this.address;
+    }
+/**
+ * user's address
+ * @param address
+ */
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
     /**
      * password getter
      * @return password of the user

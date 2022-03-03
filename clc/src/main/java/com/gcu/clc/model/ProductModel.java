@@ -30,45 +30,11 @@ public class ProductModel {
         // this.productImage = "";
     }
     public ProductModel(String productName, String description, String category, float price){
-        // this.productId = productId;
         this.productName = productName;
         this.description = description;
         this.price = price;
         // this.productImage = productImage;
     }
-
-    /**
-     * 
-     * @return the pathway for the product image used in the html file
-     */
-    // public String getProductImage() {
-    //     return this.productImage;
-    // }
-    /**
-     * sets the image of the product
-     * @param productImage the image of the product
-     */
-    // public void setProductImage(String productImage) {
-    //     this.productImage = productImage;
-    // }
-
-    /** 
-     * A getter for the product
-     * @return The product ID
-     */
-    // public int getProductId() {
-    //     return this.productId;
-    // }
-
-    
-    /** 
-     * A setter for the product
-     * @param productId
-     */
-    // public void setProductId(int productId) {
-    //     this.productId = productId;
-    // }
-
     
     /** 
      * A getter for the product name
