@@ -16,6 +16,13 @@ public class ProductBusinessService {
         return service.findProducts();
     }
 
+    public void init(){
+        System.out.println("Initializing products");
+    }
+    
+    public void destroy(){
+        System.out.println("Destroying products");
+    }
     // public static void addProduct(ProductModel product){
     //     products.add(product);
     // }

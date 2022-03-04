@@ -26,7 +26,6 @@ public class SpringConfig {
     public ProductBusinessService getProductBusinessService() {
         return new ProductBusinessService();
     }
-
     // @Bean(name="registerDataService")
     // public RegisterDataService getRegisterDataService(){
     //     return new RegisterDataService(null);

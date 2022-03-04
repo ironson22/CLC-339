@@ -2,19 +2,22 @@ package com.gcu.clc.model;
 
 public class UserModel {
     private int userId;
-    private String name;
+    private String firstName;
+    private String lastName;
     private String phoneNumber;
     private String email;
     private String profileImage;
     private String address;
 
-    public UserModel(int userId, String name, String phoneNumber, String email, String profileImage, String address){
+    public UserModel(String firstName, String lastName, String phoneNumber, String email, String profileImage, String address){
         this.userId = userId;
-        this.name = name;
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.phoneNumber = phoneNumber;
         this.email = email;
         this.profileImage = profileImage;
     }
+    
     
     /** 
      * A getter for the user ID
@@ -38,18 +41,33 @@ public class UserModel {
      * Getter for the name of a user
      * @return gets the value of name of the user
      */
-    public String getName() {
-        return this.name;
+    public String getFirstName() {
+        return this.firstName;
     }
 
     
     /** 
      * @param name the name of the user
      */
-    public void setName(String name) {
-        this.name = name;
+    public void setName(String firstName) {
+        this.firstName = firstName;
     }
 
+    /** 
+     * Getter for the name of a user
+     * @return gets the value of name of the user
+     */
+    public String getLastName() {
+        return this.lastName;
+    }
+
+    
+    /** 
+     * @param name the name of the user
+     */
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
     
     /** 
      * A getter for the phone number of a user
