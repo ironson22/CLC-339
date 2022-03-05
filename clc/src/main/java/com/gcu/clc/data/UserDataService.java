@@ -18,12 +18,17 @@ public class UserDataService {
         jdbcTemplateObject = new JdbcTemplate(dataSource);
 
     }
+    
+    /** 
+     * @param email The user's email
+     * @return UserModel The user being found
+     */
     public UserModel findUser(String email){
         String sql = "SELECT * FROM eBuy.users WHERE email = " + email;
         UserModel user;
         try{
             SqlRowSet rowSet = jdbcTemplateObject.queryForRowSet(sql);
-            user = new UserModel(rowSet.getString("user_id"), rowSet.getString("fname"), rowSet.getString("lname"), rowSet.getString("email"), rowSet.getString("profile_img"), rowSet.getString("address"));
+            user = new UserModel(rowSet.getLong("user_id"), rowSet.getString("fname"), rowSet.getString("lname"), rowSet.getString("password"), rowSet.getString("phone_number"), rowSet.getString("email"), rowSet.getString("profile_img"), rowSet.getString("address"));
             return user;
         }catch(Exception e){
             e.printStackTrace();

@@ -25,6 +25,7 @@ public class RegistrationModel {
     @NotNull(message = "Password is a required field")
     @Size(min = 1, max = 32, message = "password must be between 6 and 32 characters")
     private String password;
+    @NotNull
     @Size(min = 8, max = 50)
     private String address;
 

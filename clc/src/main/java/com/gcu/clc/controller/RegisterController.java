@@ -1,6 +1,8 @@
 package com.gcu.clc.controller;
 
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import com.gcu.clc.business.RegistrationBusinessService;
@@ -51,11 +53,19 @@ public class RegisterController {
             return "register";
         }
         //When you register, it sets each property to the value of the corresponding value. Email and password are then used to set the temporary login info, used to login a user.
-        UserModel user = new UserModel(signUp.getFirstName(), signUp.getLastName(), signUp.getPhoneNumber(), signUp.getEmail(), "", signUp.getAddress());
-        register.createAccount(signUp);
-        //If the registration was successful, it'll take the user to the welcome page
-        model.addAttribute("title", "Welcome");
-        model.addAttribute("user", user);
-        return "welcome_user";
+        // UserModel user = new UserModel(signUp.getFirstName(), signUp.getLastName(), signUp.getPhoneNumber(), signUp.getEmail(), "", signUp.getAddress());
+        UserModel user = register.createAccount(signUp);
+        if(user != null){
+            if(user.getUserId() == -1){
+                model.addAttribute("error_message", "This email has already been used");
+                return "register";
+            }
+            model.addAttribute("title", "Welcome");
+            model.addAttribute("user", user);
+            return "welcome_user";
+        }else{
+            model.addAttribute("error_message", "There was an issue creating your account. Please try again.");
+            return "register";
+        }
  }
 }

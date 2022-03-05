@@ -27,6 +27,7 @@
         <!-- Bootstrap tutorial used - https://www.youtube.com/watch?v=aeNDvQi6O94 -->
         <div class="container mt-5">
             <h1>Registration</h1>
+            <span style="color: red" th:text="${error_message}"></span>
             <!-- Form for registering. Uses thymeleaf to validate the fields. th:action looks for the post mapping of /register. registrationModel was defined as an attribute in the RegisterController class, and set to a new RegistrationModel -->
             <form class="row g-3" th:action="@{register}" th:object="${registrationModel}" method="post">
                 <!-- First Name field -->
@@ -42,7 +43,7 @@
                     <h5 style = "color: red" th:if="${#fields.hasErrors('lastName')}" th:erros="*{lastName}">Enter a last name between 3 - 32 characters long</h5>
                     <div class="input-container">
                         <label for="lastName" class="form-label" style="color: white;">Last name</label>
-                        <input for="lastName" type="text" class="form-control" placeholder="Doe" name="lastName" th:field="*{lastName}"> 
+                        <input for="lastName" type="text" class="form-control" placeholde r="Doe" name="lastName" th:field="*{lastName}"> 
                     </div>
                 </div>
            <!-- email field -->
@@ -66,7 +67,7 @@
                     <h5 style = "color: red" th:if="${#fields.hasErrors('address')}" th:erros="*{address}">Enter an address</h5>
                     <div class="input-container">
                         <label for="address" class="form-label" style="color: white;">Address</label>
-                        <input for="address" type="text" class="form-control" placeholder="123 N Streetname Ave"> 
+                        <input for="address" type="text" class="form-control" placeholder="123 N Streetname Ave" th:field="*{address}"> 
                     </div>
                 </div>
         <!-- password field -->

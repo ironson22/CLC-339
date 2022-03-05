@@ -1,18 +1,20 @@
 package com.gcu.clc.model;
 
 public class UserModel {
-    private int userId;
+    private Long userId;
     private String firstName;
     private String lastName;
+    private String password;
     private String phoneNumber;
     private String email;
     private String profileImage;
     private String address;
 
-    public UserModel(String firstName, String lastName, String phoneNumber, String email, String profileImage, String address){
+    public UserModel(Long userId, String firstName, String lastName, String password, String phoneNumber, String email, String profileImage, String address){
         this.userId = userId;
         this.firstName = firstName;
         this.lastName = lastName;
+        this.password = password;
         this.phoneNumber = phoneNumber;
         this.email = email;
         this.profileImage = profileImage;
@@ -23,7 +25,7 @@ public class UserModel {
      * A getter for the user ID
      * @return the ID of the user
      */
-    public int getUser_id() {
+    public Long getUserId() {
         return this.userId;
     }
 
@@ -32,7 +34,7 @@ public class UserModel {
      * Sets the ID of the user
      * @param userId the user ID
      */
-    public void setUser_id(int userId) {
+    public void setUserId(Long userId) {
         this.userId = userId;
     }
 
@@ -103,7 +105,14 @@ public class UserModel {
         this.email = email;
     }
 
-    
+    public String getPassword() {
+        return this.password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     /** 
      * @return The profile Image a user is using
      */
@@ -119,7 +128,6 @@ public class UserModel {
     public void setProfileImage(String profileImage) {
         this.profileImage = profileImage;
     }
-
     
     /** 
      * A getter for the address
