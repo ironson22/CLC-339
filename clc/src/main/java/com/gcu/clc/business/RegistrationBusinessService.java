@@ -1,13 +1,9 @@
 package com.gcu.clc.business;
 
-import java.util.List;
-
 import com.gcu.clc.data.RegisterDataService;
 import com.gcu.clc.model.RegistrationModel;
 import com.gcu.clc.model.UserModel;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 /**
  * RegistrationBusinessService

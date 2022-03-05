@@ -3,9 +3,6 @@ package com.gcu.clc;
 import com.gcu.clc.business.LoginBusinessService;
 import com.gcu.clc.business.ProductBusinessService;
 import com.gcu.clc.business.RegistrationBusinessService;
-import com.gcu.clc.data.ProductDataService;
-import com.gcu.clc.data.RegisterDataService;
-
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

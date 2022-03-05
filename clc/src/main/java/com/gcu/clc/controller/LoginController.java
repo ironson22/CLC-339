@@ -2,18 +2,14 @@ package com.gcu.clc.controller;
 
 
 import javax.validation.Valid;
-
 import com.gcu.clc.business.LoginBusinessService;
-import com.gcu.clc.business.ProductBusinessService;
 import com.gcu.clc.model.LoginModel;
-import com.gcu.clc.model.ProductModel;
-
+import com.gcu.clc.model.UserModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -44,22 +40,22 @@ public class LoginController {
      */
     @PostMapping("/doLogin")
     public String login(@Valid LoginModel login, BindingResult bindResult, Model model) {
-        if (login.getEmail().equals(loginBusinessService.getEmail()) && login.getPassword().equals(loginBusinessService.getPassword())) {
-            //If the input fields have errors, it will take the user to the login page again
-            if (bindResult.hasErrors()) {
-                model.addAttribute("title", "Login Form");
-
-                return "login";
-            }
+        //If there were errors, it'll take the user to the login page again
+        if (bindResult.hasErrors()) {
+                    model.addAttribute("title", "Login Form");
+                    return "login";
+        }
+        UserModel user = loginBusinessService.authenticateAccount(login);
+        if (user != null){
+            //need to add error handling
             //If the login is successful, it'll change the title attribute to Welcome and take the user to the welcome_user file
             model.addAttribute("title", "Welcome");
-            model.addAttribute("user", loginBusinessService);
+            model.addAttribute("user", user);
             return "welcome_user";
         } else {
-            model.addAttribute("title", "Login Form");
+            model.addAttribute("error_message", "There was an issue getting your account. Please try again.");
             return "login";
         }
-
         
     }
 }
