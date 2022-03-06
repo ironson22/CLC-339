@@ -29,6 +29,7 @@ public class LoginController {
     public String showLogin(Model model) {
         model.addAttribute("title", "Login Form");
         model.addAttribute("loginModel", new LoginModel());
+        model.addAttribute("error_message", "");
         return "login";
     }
     /**
@@ -47,6 +48,10 @@ public class LoginController {
         }
         UserModel user = loginBusinessService.authenticateAccount(login);
         if (user != null){
+            if(user.getUserId() == -1){
+                model.addAttribute("error_message", "Email or Password is incorrect");
+                return "login";
+            }
             //need to add error handling
             //If the login is successful, it'll change the title attribute to Welcome and take the user to the welcome_user file
             model.addAttribute("title", "Welcome");

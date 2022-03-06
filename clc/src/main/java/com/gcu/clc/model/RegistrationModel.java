@@ -17,13 +17,13 @@ public class RegistrationModel {
     @Pattern(regexp = "\\d{10}|(?:\\d{3}-){2}\\d{4}|\\(\\d{3}\\)\\d{3}-?\\d{4}")
     private String phoneNumber;
 
-    @NotNull(message = "Username is a required field")
-    @Size(min = 1, max = 32, message = "email must be between 1 and 32")
+    @NotNull(message = "Email is a required field")
+    @Size(min = 6, max = 32, message = "email must be between 1 and 32")
     @Pattern(regexp = "^(?=.{1,64}@)[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+)*@[^-][A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$")
     private String email;
 
     @NotNull(message = "Password is a required field")
-    @Size(min = 1, max = 32, message = "password must be between 6 and 32 characters")
+    @Size(min = 6, max = 32, message = "password must be between 6 and 32 characters")
     private String password;
     @NotNull
     @Size(min = 8, max = 50)
