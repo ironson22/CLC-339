@@ -37,6 +37,10 @@ public class ProductDataService {
         }
         return products;
     }
+    public ProductModel findById(Long id){
+        
+    }
+
     public boolean createProduct(ProductModel product){
         String sql = "INSERT INTO products(product_name, description, price, category) VALUES (?, ?, ?, ?)";
         try{
