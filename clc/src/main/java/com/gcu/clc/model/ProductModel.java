@@ -19,6 +19,7 @@ public class ProductModel {
     @NotNull
     @NumberFormat
     private float price;
+    private long productId;
 
     public ProductModel(){
         this.productName = "";
@@ -26,7 +27,8 @@ public class ProductModel {
         this.price = 0;
         // this.productImage = "";
     }
-    public ProductModel(String productName, String description, String category, float price){
+    public ProductModel(Long productId, String productName, String description, String category, float price){
+        this.productId = productId;
         this.productName = productName;
         this.description = description;
         this.price = price;
@@ -85,13 +87,35 @@ public class ProductModel {
     public void setPrice(float price) {
         this.price = price;
     }
+    
+    /** 
+     * @return String
+     */
     public String getCategory() {
         return this.category;
     }
 
+    
+    /** 
+     * @param category
+     */
     public void setCategory(String category) {
         this.category = category;
     }
 
+    
+    /** 
+     * @return long
+     */
+    public long getProductId() {
+        return this.productId;
+    }
 
+    
+    /** 
+     * @param productId
+     */
+    public void setProductId(long productId) {
+        this.productId = productId;
+    }
 }

@@ -12,6 +12,10 @@ public class ProductBusinessService {
         return service.findProducts();
     }
 
+    public boolean createProduct(ProductModel productModel){
+        return service.createProduct(productModel);
+    }
+    
     public void init(){
         System.out.println("Initializing products");
     }

@@ -9,8 +9,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -39,6 +42,19 @@ public class ProductController {
         model.addAttribute("productModel", new ProductModel());
         return "productform";
     }
+
+    @PutMapping("/edit/{id}")
+    public String updateForm(@PathVariable(value="id") Long id, Model model){
+        //Find employee by ID
+        
+        return "updateform";
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public String deleteProduct(@PathVariable(value="id") Long id, Model model){
+        //Find employee by ID
+        return "deleteproduct";
+    }
 /**
  * 
  * @param product A product model, used to get the properties of the product that was made in the product form
@@ -52,10 +68,12 @@ public class ProductController {
             model.addAttribute("title", "Product Creation");
             return "productform";
         }
-        //Creates a new product and adds it to the products list
-        // ProductBusinessService.addProduct(new ProductModel(product.getProductName(), product.getDescription(), product.getCategory(), product.getPrice()));
+        //Creates a new product and adds it to database
+        if(service.createProduct(product)){
         //Sets the products to the attribute "products", which is used on the products page to display each product
-        model.addAttribute("products", service.getProducts());
-        return "products";
+            model.addAttribute("products", service.getProducts());
+            return "products";
+        }
+        return "productform";
     }
 }
