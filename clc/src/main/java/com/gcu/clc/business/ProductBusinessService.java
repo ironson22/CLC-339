@@ -16,6 +16,20 @@ public class ProductBusinessService {
         return service.createProduct(productModel);
     }
     
+    //find a product by id
+    public ProductModel findById(Long id){
+        return service.findById(id);
+    }
+
+    public boolean updateProduct(ProductModel productModel){
+        return service.updateProduct(productModel);
+    }
+
+    //delete a product by id
+    public boolean deleteProduct(Long id){
+        return service.deleteProduct(id);
+    }
+    
     public void init(){
         System.out.println("Initializing products");
     }

@@ -42,18 +42,21 @@ public class ProductController {
         model.addAttribute("productModel", new ProductModel());
         return "productform";
     }
-
+    //Likely the same result as delete with only working in Postman
     @PutMapping("/edit/{id}")
-    public String updateForm(@PathVariable(value="id") Long id, Model model){
-        //Find employee by ID
-        
-        return "updateform";
+    public String changeProduct(@PathVariable("id") Long id, @Valid ProductModel productModel, BindingResult result, Model model) {
+        if (result.hasErrors()) {
+            model.addAttribute("title", "Edit Product");
+            return "productform";
+        }
+        service.updateProduct(productModel);
+        return "redirect:/products/";
     }
-
+    //Works using PostMan but wont work in browser
     @DeleteMapping("/delete/{id}")
-    public String deleteProduct(@PathVariable(value="id") Long id, Model model){
-        //Find employee by ID
-        return "deleteproduct";
+    public String removeProduct(@PathVariable("id") Long id) {
+        service.deleteProduct(id);
+        return "products";
     }
 /**
  * 
