@@ -42,9 +42,18 @@ public class ProductController {
         model.addAttribute("productModel", new ProductModel());
         return "productform";
     }
+
+    @GetMapping("/edit/{id}")
+    public String editProduct(@PathVariable("id") String id, @Valid ProductModel productModel, BindingResult result, Model model){
+        Long productId = Long.parseLong(id);
+        ProductModel product = service.findById(productId);
+        System.out.println(productModel.getProductName());
+        model.addAttribute("productModel", product);
+        return "productForm";
+    }
     //Likely the same result as delete with only working in Postman
     @PutMapping("/edit/{id}")
-    public String changeProduct(@PathVariable("id") Long id, @Valid ProductModel productModel, BindingResult result, Model model) {
+    public String changeProduct(@PathVariable("id") String id, @Valid ProductModel productModel, BindingResult result, Model model) {
         if (result.hasErrors()) {
             model.addAttribute("title", "Edit Product");
             return "productform";
