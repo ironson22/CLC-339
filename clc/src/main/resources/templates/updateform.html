@@ -23,7 +23,7 @@
         <div class="container mt-5">
             <h1>Product Form</h1>
             <!-- Form for registering. Uses thymeleaf to validate the fields. th:action looks for the post mapping of /register. registrationModel was defined as an attribute in the RegisterController class, and set to a new RegistrationModel -->
-            <form class="row g-3" th:action="@{changeProduct}" th:object="${productModel}" method="put">
+            <form class="row g-3" th:action="@{updating}" th:object="${productModel}" method="put">
                 <!-- Product name field -->
                 <div class="field-container col-md-6">
                     <h5 style="color: red" th:if="${#fields.hasErrors('productName')}" th:erros="*{productName}">Enter a name between 3 - 32 characters</h5>

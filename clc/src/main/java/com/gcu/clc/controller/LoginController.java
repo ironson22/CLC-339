@@ -12,6 +12,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 @RequestMapping("/login")
@@ -25,7 +26,7 @@ public class LoginController {
      * @param model The model being used
      * @return Returns the file to which the user will be taken to
      */
-    @GetMapping("/")
+    @RequestMapping(path="/", method={RequestMethod.GET})
     public String showLogin(Model model) {
         model.addAttribute("title", "Login Form");
         model.addAttribute("loginModel", new LoginModel());
@@ -39,7 +40,7 @@ public class LoginController {
      * @param model The model being used
      * @return returns the file to which the user will be taken to
      */
-    @PostMapping("/doLogin")
+    @RequestMapping(path="/doLogin", method={RequestMethod.GET, RequestMethod.POST})
     public String login(@Valid LoginModel login, BindingResult bindResult, Model model) {
         //If there were errors, it'll take the user to the login page again
         if (bindResult.hasErrors()) {

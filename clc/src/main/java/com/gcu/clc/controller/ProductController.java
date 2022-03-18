@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 @RequestMapping("/products")
@@ -43,30 +44,6 @@ public class ProductController {
         return "productform";
     }
 
-    @GetMapping("/edit/{id}")
-    public String editProduct(@PathVariable("id") String id, @Valid ProductModel productModel, BindingResult result, Model model){
-        Long productId = Long.parseLong(id);
-        ProductModel product = service.findById(productId);
-        System.out.println(productModel.getProductName());
-        model.addAttribute("productModel", product);
-        return "productForm";
-    }
-    //Likely the same result as delete with only working in Postman
-    @PutMapping("/edit/{id}")
-    public String changeProduct(@PathVariable("id") String id, @Valid ProductModel productModel, BindingResult result, Model model) {
-        if (result.hasErrors()) {
-            model.addAttribute("title", "Edit Product");
-            return "productform";
-        }
-        service.updateProduct(productModel);
-        return "redirect:/products/";
-    }
-    //Works using PostMan but wont work in browser
-    @DeleteMapping("/delete/{id}")
-    public String removeProduct(@PathVariable("id") Long id) {
-        service.deleteProduct(id);
-        return "products";
-    }
 /**
  * 
  * @param product A product model, used to get the properties of the product that was made in the product form
@@ -87,5 +64,45 @@ public class ProductController {
             return "products";
         }
         return "productform";
+    }
+
+    @GetMapping("/edit/{id}/")
+    public String editProduct(@PathVariable("id") Long id, Model model){
+        System.out.println(id);
+        ProductModel productModel = service.findById(id);
+        System.out.println(productModel.getProductName());
+        model.addAttribute("productModel", productModel);
+        System.out.println(productModel.getProductId());
+        return "updateform";
+    } 
+    //Likely the same result as delete with only working in Postman
+    // @RequestMapping(value="/updating", method = RequestMethod.PUT)
+    @RequestMapping(path="/edit/{id}/updating", method = {RequestMethod.GET, RequestMethod.PUT})
+    public String changeProduct(@PathVariable("id") Long id, ProductModel productModel, BindingResult result, Model model) {
+        System.out.print(productModel.getProductName());
+        productModel.setProductId(id);
+
+        if (result.hasErrors()) {
+            model.addAttribute("title", "Edit Product");
+            return "updateform";
+        }
+        if(service.updateProduct(productModel)){
+            model.addAttribute("products", service.getProducts());
+            return "redirect:/products/";
+        }
+        return "updateform";
+    }
+
+    @GetMapping("/delete/{id}")
+    public String deleteProduct(@PathVariable("id") Long id){
+        System.out.println(id);
+        removeProduct(id);
+        return "redirect:/products/";
+    }
+    //Works using PostMan but wont work in browser
+    @DeleteMapping("/deleting")
+    public String removeProduct(@PathVariable("id") Long id) {
+        service.deleteProduct(id);
+        return "redirect:/products/";
     }
 }
