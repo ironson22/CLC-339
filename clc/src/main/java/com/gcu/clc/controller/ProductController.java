@@ -4,6 +4,7 @@ import javax.validation.Valid;
 
 import com.gcu.clc.business.ProductBusinessService;
 import com.gcu.clc.model.ProductModel;
+import com.gcu.clc.model.SearchModel;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -30,6 +31,14 @@ public class ProductController {
     @GetMapping("/")
     public String productDisplay(Model model) {
         model.addAttribute("products", service.getProducts());
+        model.addAttribute("openingText", "Products");
+        return "products";
+    }
+    
+    @GetMapping("/search/{product}")
+    public String searchProducts(@PathVariable("product") String productName, Model model){
+        model.addAttribute("products", service.searchProductsByName(productName));
+        model.addAttribute("openingText", "Results for '" + productName + "'");
         return "products";
     }
 /**
@@ -51,7 +60,7 @@ public class ProductController {
  * @param model The model being used, which uses the business layer to send the products over the products page for display
  * @return If their was validation issues, it sends you back to the product form, otherwise it will send you to the products page
  */
-    @PostMapping("/createProduct")
+    @RequestMapping(path="/createProduct", method={RequestMethod.GET, RequestMethod.POST})
     public String createProduct(@Valid ProductModel product, BindingResult bindResult, Model model){
         if(bindResult.hasErrors()){
             model.addAttribute("title", "Product Creation");
@@ -75,8 +84,7 @@ public class ProductController {
         System.out.println(productModel.getProductId());
         return "updateform";
     } 
-    //Likely the same result as delete with only working in Postman
-    // @RequestMapping(value="/updating", method = RequestMethod.PUT)
+
     @RequestMapping(path="/edit/{id}/updating", method = {RequestMethod.GET, RequestMethod.PUT})
     public String changeProduct(@PathVariable("id") Long id, ProductModel productModel, BindingResult result, Model model) {
         System.out.print(productModel.getProductName());
@@ -92,16 +100,25 @@ public class ProductController {
         }
         return "updateform";
     }
-
+/**
+ * GetMapping for delete method to call removeProduct
+ * @param id product id
+ * @return products page
+ */
     @GetMapping("/delete/{id}")
     public String deleteProduct(@PathVariable("id") Long id){
+        //Testing
         System.out.println(id);
         removeProduct(id);
         return "redirect:/products/";
     }
-    //Works using PostMan but wont work in browser
+    /**
+     * Method to remove a product using the ID passed in from the deleteProduct method
+     * @param id products ID
+     * @return products page
+     */
     @DeleteMapping("/deleting")
-    public String removeProduct(@PathVariable("id") Long id) {
+    public String removeProduct(Long id) {
         service.deleteProduct(id);
         return "redirect:/products/";
     }

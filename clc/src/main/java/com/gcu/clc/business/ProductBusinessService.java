@@ -11,7 +11,9 @@ public class ProductBusinessService {
         
         return service.findProducts();
     }
-
+    public List<ProductModel> searchProductsByName(String productName){
+        return service.findProductsByName(productName);
+    }
     public boolean createProduct(ProductModel productModel){
         return service.createProduct(productModel);
     }
@@ -37,7 +39,5 @@ public class ProductBusinessService {
     public void destroy(){
         System.out.println("Destroying products");
     }
-    // public static void addProduct(ProductModel product){
-    //     products.add(product);
-    // }
+
 }

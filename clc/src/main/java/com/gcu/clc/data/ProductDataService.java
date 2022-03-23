@@ -22,6 +22,21 @@ public class ProductDataService {
         this.jdbcTemplateObject = new JdbcTemplate(datasource);
     }
 
+    public List<ProductModel> findProductsByName(String productName){
+        String sql = "SELECT * FROM products WHERE product_name LIKE '%" + productName + "%'";
+        List<ProductModel> products = new ArrayList<ProductModel>();
+
+        try{
+            SqlRowSet rowSet = jdbcTemplateObject.queryForRowSet(sql);
+            while(rowSet.next()){
+                products.add(new ProductModel(rowSet.getLong("product_id"), rowSet.getString("product_name"), rowSet.getString("description"), rowSet.getString("category"), rowSet.getFloat("price")));
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+            return null;
+        }
+        return products;
+    }
     public List<ProductModel> findProducts(){
         String sql = "SELECT * FROM products";
         List<ProductModel> products = new ArrayList<ProductModel>();
