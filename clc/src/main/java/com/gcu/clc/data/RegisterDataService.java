@@ -16,6 +16,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 @Service
 public class RegisterDataService {
@@ -33,6 +34,7 @@ public class RegisterDataService {
     //Used to get the primary key after creating the object to instantiate a new UserModel object
     public UserModel createUser(RegistrationModel user){
         String sql = "INSERT INTO users(fname, lname, password, phone_number, email, address) VALUES (?, ?, ?, ?, ?, ?)";
+        String encryptedPassword = new BCryptPasswordEncoder().encode(user.getPassword());
         try{
             if(findDuplicateEmail(user.getEmail())){
                 return new UserModel(-1L, "", "", "", "", "", "", "");
@@ -46,7 +48,7 @@ public class RegisterDataService {
                 //Sets each value being sent in the sql statement
                 ps.setString(1, user.getFirstName());
                 ps.setString(2, user.getLastName());
-                ps.setString(3, user.getPassword());
+                ps.setString(3, encryptedPassword);
                 ps.setString(4, user.getPhoneNumber());
                 ps.setString(5, user.getEmail());
                 ps.setString(6, user.getAddress());

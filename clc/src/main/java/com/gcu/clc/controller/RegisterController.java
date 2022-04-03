@@ -55,7 +55,7 @@ public class RegisterController {
             }
             model.addAttribute("title", "Welcome");
             model.addAttribute("user", user);
-            return "welcome_user";
+            return "redirect:/";
         }else{
             model.addAttribute("error_message", "There was an issue creating your account. Please try again.");
             return "register";

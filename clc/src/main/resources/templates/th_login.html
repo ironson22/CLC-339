@@ -25,24 +25,25 @@
     <!-- thymeleaf stuff used - https://codebun.com/create-a-login-form-using-thymleaf-in-spring-boot/-->
      <div class="container mt-5">
         <h1>Login</h1>
+        <span style="color: red;"th:text="${error_message}"></span>
         <!-- Form for logging in. Uses thymeleaf to validate the fields. th:action looks for the post mapping of /doLogin. loginModel was defined as an attribute in the LoginController class, and set to a new LoginModel -->
-        <form class = "row g-3" th:action="@{/login}" method="post">
-            <!-- Two sections, one for the username and one for the password -->
+        <form class = "row g-3" th:action="@{doLogin}" th:object="${loginModel}" method="post">
+            <!-- Two sections, one for the email and one for the password -->
             <div class="field-container col-md-6">
                 <!-- Each section has an h5 that is hidden unless there are errors, to which it will display in red text an error message. -->
-            <h5 style = "color: red" th:if="${param.error}">Enter a correct username</h5>
+            <h5 style = "color: red" th:if="${#fields.hasErrors('email')}" th:erros="*{email}">Enter a correct email</h5>
             <!-- The input-container classes contain the label and input field. Each input field uses thymeleaf to mark it as the field of a property of the LoginModel for validation. -->
             <div class="input-container">
-                <label for="username" class="form-label" style="color: white;">username</label>
-                <input for="username" type="text" class="form-control" placeholder="username (example@yahoo.com)" name="username"> 
+                <label for="email" class="form-label" style="color: white;">Email</label>
+                <input for="email" type="text" class="form-control" placeholder="Email (example@yahoo.com)" name="email" th:field="*{email}"> 
             </div>
             </div>
 <!-- password section -->
             <div class="field-container col-md-6">
-                <h5 style = "color: red" th:if="${param.error}">Enter a correct password</h5>
+                <h5 style = "color: red" th:if="${#fields.hasErrors('password')}" th:erros="*{password}">Enter a correct password</h5>
                 <div class="input-container">
                     <label for="password" class = "form-label" style="color: white;">Password</label>
-                    <input for="password" type="password" class = "form-control" placeholder="Enter your password" name="password" required>
+                    <input for="password" type="password" class = "form-control" placeholder="Enter your password" name="password" th:field="*{password}">
                 </div>
             </div>
 
