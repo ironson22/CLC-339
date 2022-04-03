@@ -30,14 +30,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
         .httpBasic()
             .and()
             .authorizeRequests()
-            .antMatchers("/products/**")
+            .antMatchers("/products/**", "/service/**")
             .authenticated()
             .and()
         .authorizeRequests()
             .antMatchers("/", "/images/**")
             .permitAll()
-            // .anyRequest();
-            // .authenticated();
             .and()
         .formLogin()
             .loginPage("/login")
