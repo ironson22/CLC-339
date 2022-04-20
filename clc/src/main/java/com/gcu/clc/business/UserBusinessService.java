@@ -18,6 +18,12 @@ import org.springframework.stereotype.Service;
 public class UserBusinessService implements UserDetailsService{
     @Autowired
     private UserDataService service;
+    
+    /** 
+     * @param username
+     * @return UserDetails
+     * @throws UsernameNotFoundException
+     */
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         UserModel user = service.findByUsername(username);

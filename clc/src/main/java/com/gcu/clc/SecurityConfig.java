@@ -1,5 +1,7 @@
 package com.gcu.clc;
 
+import javax.servlet.http.HttpSession;
+
 import com.gcu.clc.business.UserBusinessService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,12 +20,22 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
     @Autowired
     private PasswordEncoder passwordEncoder;
     @Autowired UserBusinessService service ;
+    
+    /** 
+     * @return BCryptPasswordEncoder
+     */
+    @Autowired 
 //Encodes the password
     @Bean(name="passwordEncoder")
     public static BCryptPasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder();
     }
 
+    
+    /** 
+     * @param http
+     * @throws Exception
+     */
     @Override
     protected void configure(HttpSecurity http) throws Exception{
         http.csrf().disable()
@@ -51,6 +63,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
             .permitAll().logoutSuccessUrl("/");
     }
 
+    
+    /** 
+     * @param auth
+     * @throws Exception
+     */
     public void configure(AuthenticationManagerBuilder auth) throws Exception{
         auth
         .userDetailsService(service)

@@ -15,6 +15,10 @@ import org.springframework.web.bind.annotation.RestController;
 public class ProductsRestService {
     @Autowired ProductBusinessService service;
 
+    
+    /** 
+     * @return List<ProductModel>
+     */
     @GetMapping(path="/products/getjson", produces={MediaType.APPLICATION_JSON_VALUE})
     public List<ProductModel> getProductsAsJson(){
         return service.getProducts();

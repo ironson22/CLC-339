@@ -20,13 +20,23 @@ public class ProductModel {
     @NumberFormat
     private float price;
     private long productId;
-
+    /**
+     * Default constructor
+     */
     public ProductModel(){
         this.productName = "";
         this.description = "";
         this.price = 0;
         // this.productImage = "";
     }
+    /**
+     * Non default constructor
+     * @param productId The product ID
+     * @param productName The product name
+     * @param description Description of the product
+     * @param category category of the product
+     * @param price product price
+     */
     public ProductModel(Long productId, String productName, String description, String category, float price){
         this.productId = productId;
         this.productName = productName;
@@ -89,6 +99,7 @@ public class ProductModel {
     }
     
     /** 
+     * Getter for the category
      * @return String
      */
     public String getCategory() {
@@ -97,6 +108,7 @@ public class ProductModel {
 
     
     /** 
+     * Setter for the category
      * @param category
      */
     public void setCategory(String category) {
@@ -105,6 +117,7 @@ public class ProductModel {
 
     
     /** 
+     * Getter for the product ID
      * @return long
      */
     public long getProductId() {
@@ -113,6 +126,7 @@ public class ProductModel {
 
     
     /** 
+     * Setter for the product ID
      * @param productId
      */
     public void setProductId(long productId) {

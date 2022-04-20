@@ -13,6 +13,11 @@ public class RegistrationBusinessService {
     @Autowired
     RegisterDataService service;
 
+    
+    /** 
+     * @param user
+     * @return UserModel
+     */
     public UserModel createAccount(RegistrationModel user){
         return service.createUser(user);
     }

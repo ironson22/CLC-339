@@ -39,7 +39,8 @@
                     <li>
                         <a href="#"><img src="/assets/css/images/img_noUser.jpeg" alt="Avatar" class="avatar"></a>
                         <ul>
-                            <li><a href="/login/">Login</a></li>
+                            <li th:if="${session.loggedIn}"><a href="/logout">Logout</a></li>
+                            <li th:unless="${session.loggedIn}"><a href="/login/">Login</a></li>
                             <li><a href="/registration/">Sign Up</a></li>
                         </ul>
                     </li>
@@ -49,6 +50,7 @@
             </nav>
     </div>
 
+    
     <div th:fragment="footer">
         <section id="footer">
             <div class="container" id="footer">

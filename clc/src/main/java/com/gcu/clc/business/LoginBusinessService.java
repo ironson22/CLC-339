@@ -13,6 +13,11 @@ public class LoginBusinessService {
     @Autowired
     LoginDataService service;
 
+    
+    /** 
+     * @param user
+     * @return UserModel
+     */
     public UserModel authenticateAccount(LoginModel user){
         return service.authenticateUser(user);
     }

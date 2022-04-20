@@ -9,6 +9,54 @@ public class UserModel {
     private String email;
     private String profileImage;
     private String address;
+    private boolean loggedIn;
+    
+    /** 
+     * @param firstName
+     */
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+    
+    /** 
+     * @param phoneNumber
+     */
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    
+    /** 
+     * @return String
+     */
+    public String getProfileImage() {
+        return this.profileImage;
+    }
+
+
+    
+    /** 
+     * @return boolean
+     */
+    public boolean isLoggedIn() {
+        return this.loggedIn;
+    }
+
+    
+    /** 
+     * @return boolean
+     */
+    public boolean getLoggedIn() {
+        return this.loggedIn;
+    }
+
+    
+    /** 
+     * @param loggedIn
+     */
+    public void setLoggedIn(boolean loggedIn) {
+        this.loggedIn = loggedIn;
+    }
 
     public UserModel(Long userId, String firstName, String lastName, String password, String phoneNumber, String email, String profileImage, String address){
         this.userId = userId;
@@ -105,10 +153,18 @@ public class UserModel {
         this.email = email;
     }
 
+    
+    /** 
+     * @return String
+     */
     public String getPassword() {
         return this.password;
     }
 
+    
+    /** 
+     * @param password
+     */
     public void setPassword(String password) {
         this.password = password;
     }

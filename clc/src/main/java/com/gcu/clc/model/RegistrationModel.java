@@ -28,14 +28,16 @@ public class RegistrationModel {
     @NotNull
     @Size(min = 8, max = 50)
     private String address;
-
+    /**
+     * Default constructor
+     */
     public RegistrationModel() {
         this.email = "";
         this.password = "";
     }
 
     /**
-     * 
+     * Non default constructor
      * @param email The user's email that was entered in the registration
      * @param password The user's password that was entered in the registration
      * @param firstName The user's first name that was entered in the registration
@@ -109,7 +111,7 @@ public class RegistrationModel {
         this.phoneNumber = phoneNumber;
     }
 /**
- * 
+ * Getter for the address
  * @return user's address
  */
     public String getAddress() {
@@ -117,7 +119,7 @@ public class RegistrationModel {
     }
 /**
  * user's address
- * @param address
+ * @param address user's address
  */
     public void setAddress(String address) {
         this.address = address;
